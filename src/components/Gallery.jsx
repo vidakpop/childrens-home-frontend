@@ -27,8 +27,8 @@ const Gallery = () => {
         >
           Tiny Feet, Big Hearts{" "}
           <span className="text-blue-500 neon-glow"> A Peek into Pillars of Hope</span>
-        </motion.h1>
-      
+      </motion.h1>
+    
       <motion.div
         className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
         initial={{ opacity: 0, y: 50 }}
