@@ -18,7 +18,7 @@ const Gallery = () => {
 
   return (
     
-    <div className="min-h-screen bg-black flex items-center justify-center p-5">
+    <div className="min-h-screen bg-black flex flex-col items-center justify-center p-5">
       <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ const Gallery = () => {
       </motion.h1>
     
       <motion.div
-        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-6"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
