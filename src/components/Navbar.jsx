@@ -43,7 +43,7 @@ const Navbar = () => {
               duration={500}
               className="hover:text-blue-500 transition-colors"
             >
-              Profile
+              Gallery
             </Link>
           </li>
           <li>
@@ -53,7 +53,7 @@ const Navbar = () => {
               duration={500}
               className="hover:text-blue-500 transition-colors"
             >
-              The Merger
+              Donate
             </Link>
           </li>
           <li>
@@ -124,7 +124,7 @@ const Navbar = () => {
               className="hover:text-blue-500 transition-colors"
               onClick={toggleMenu}
             >
-              Profile
+              Gallery
             </Link>
           </li>
           <li>
@@ -135,7 +135,7 @@ const Navbar = () => {
               className="hover:text-blue-500 transition-colors"
               onClick={toggleMenu}
             >
-              The Merger
+              Donate
             </Link>
           </li>
           <li>
