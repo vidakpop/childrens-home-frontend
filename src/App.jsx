@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
+import Gallery from './components/Gallery'
 
 const App = () => {
   return (
@@ -8,6 +9,7 @@ const App = () => {
     
       <Navbar />
       <HeroSection />
+      <Gallery />
       
       
 
