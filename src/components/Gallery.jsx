@@ -17,7 +17,18 @@ const Gallery = () => {
   }, []);
 
   return (
+    
     <div className="min-h-screen bg-black flex items-center justify-center p-5">
+      <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 1 }}
+          className="text-4xl sm:text-6xl font-extrabold text-white mb-4"
+        >
+          Tiny Feet, Big Hearts{" "}
+          <span className="text-blue-500 neon-glow"> A Peek into Pillars of Hope</span>
+        </motion.h1>
+      
       <motion.div
         className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
         initial={{ opacity: 0, y: 50 }}
@@ -70,6 +81,7 @@ const Gallery = () => {
         </motion.div>
       </Modal>
     </div>
+    
   );
 };
 
