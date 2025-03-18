@@ -34,7 +34,7 @@ const Gallery = () => {
           >
             <motion.img
               src={img.image}
-              alt="Gallery"
+              alt={img.title}
               className="w-full h-52 object-cover rounded-2xl shadow-lg shadow-blue-500/50 hover:shadow-xl transition-all duration-300"
               whileHover={{ scale: 1.05, rotate: 2 }}
               transition={{ type: "spring", damping: 10 }}
