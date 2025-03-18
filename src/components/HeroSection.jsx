@@ -76,7 +76,7 @@ const HeroSection = () => {
         />
 
         <p className="mt-4 text-sm sm:text-lg text-gray-300">
-          Your trusted partner in brand consultancy and career transformation.
+        The Daystar University Actuarial Students Association (DUASA)  fundraising for our community engagement project a visit to a local children's home this semester.
         </p>
 
         <motion.button
