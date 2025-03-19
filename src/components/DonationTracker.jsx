@@ -93,9 +93,10 @@ const DonationTracker = () => {
 
       <motion.div
         className="mt-10 relative cursor-pointer"
-        whileHover={{ rotateY: 180 }}
+        animate={{ rotateY: 360 }}
+        transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
       >
-        <img src="/coin.png" alt="Flipping Coin" className="w-16 h-16" />
+        <img src={coin} alt="Flipping Coin" className="w-16 h-16" />
       </motion.div>
 
       <motion.button
