@@ -53,22 +53,31 @@ const Footer = () => {
 
   const faqs = [
     {
-      question: "What is Social Media Auditing?",
-      answer: "Social media auditing involves analyzing your accounts to evaluate performance and improve your online presence.",
+      "question": "What is the purpose of the Pillars of Hope Children's Home visit?",
+      "answer": "The visit aims to empower children by providing emotional support, inspiration, and essential resources to enhance their well-being."
     },
     {
-      question: "How does LinkedIn Optimization work?",
-      answer: "We optimize your LinkedIn profile to enhance visibility and attract professional opportunities.",
+      "question": "How much is the fundraising target for the visit?",
+      "answer": "Our target is Ksh. 100,000+, and we have currently raised Ksh. 64,000, which is 62% of our goal."
     },
     {
-      question: "What is included in Content Strategy services?",
-      answer: "Our content strategy includes planning, creating, and distributing content to align with your goals.",
+      "question": "What contributions has ICEA LION Actuaries made?",
+      "answer": "ICEA LION Actuaries have contributed Ksh. 9,500 towards the total contributions."
     },
     {
-      question: "What is Empowerment Coaching?",
-      answer: "Empowerment coaching helps you achieve personal and professional growth by focusing on your strengths and aspirations.",
+      "question": "What type of support will be provided to the children?",
+      "answer": "The support includes food supplies expected to last a month, long-term amenities such as utensils and school materials, and emotional and motivational empowerment."
     },
-  ];
+    {
+      "question": "How can one contribute to this initiative?",
+      "answer": "You can contribute financially or by donating essential items to help the children at Pillars of Hope Children's Home."
+    },
+    {
+      "question": "Why is this initiative important?",
+      "answer": "Children are the future of tomorrow. This initiative seeks to empower and encourage them to step into their purpose and potential."
+    }
+  ]
+  
 
   const [activeFAQ, setActiveFAQ] = useState(null);
 
