@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Progress } from "@/components/ui/progress";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { X } from "lucide-react";
+import {mpesa} from "../assets/mpesa.jpeg";
 
 const DonationTracker = () => {
   const targetAmount = 100000;
@@ -108,7 +109,7 @@ const DonationTracker = () => {
               </p>
               <div className="flex justify-center mt-5">
                 <motion.img 
-                  src="../assets/mpesa.jpeg" 
+                  src={mpesa}
                   alt="Donate QR" 
                   className="w-24 h-24 cursor-pointer"
                   whileHover={{ scale: 1.1, rotate: 10 }}
