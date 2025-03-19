@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ReactTyped as Typed } from "react-typed";
-//import main from '../assets/brand.mp4';
+import main from '../assets/main.mp4';
 
 const HeroSection = () => {
   return (
@@ -10,13 +10,13 @@ const HeroSection = () => {
       className="relative h-screen flex items-center justify-center bg-black overflow-hidden"
     >
       {/* Video Background */}
-     {/* <video
+      <video
         className="absolute inset-0 w-full h-full object-cover"
         src={main} // Replace with the path to your video
         autoPlay
         loop
         muted
-      />*/}
+      />
 
       {/* Cyberpunk Glow Background Elements */}
       <div className="absolute inset-0">
@@ -74,7 +74,7 @@ const HeroSection = () => {
           typeSpeed={50}
           backSpeed={40}
           loop
-          className="text-lg sm:text-xl text-[#ff6f61]"
+          className="text-lg sm:text-xl text-blue-600 neon-glow"
         />
 
         <p className="mt-4 text-sm sm:text-lg text-gray-300">
