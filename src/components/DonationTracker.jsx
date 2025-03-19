@@ -5,6 +5,23 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { X } from "lucide-react";
 import mpesa from "../assets/mpesa.jpeg";
 
+// Rotating Coin Component
+function RotatingCoin() {
+  const ref = useRef();
+  
+  useFrame(() => {
+    ref.current.rotation.y += 0.02; // Rotate the coin
+  });
+
+  return (
+    <mesh ref={ref} position={[0, 1, 0]}>
+      <cylinderGeometry args={[0.5, 0.5, 0.1, 32]} />
+      <meshStandardMaterial color="gold" emissive="yellow" emissiveIntensity={0.7} />
+    </mesh>
+  );
+}
+
+
 const DonationTracker = () => {
   const targetAmount = 100000;
   const [raisedAmount, setRaisedAmount] = useState(68500);
