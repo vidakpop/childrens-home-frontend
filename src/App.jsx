@@ -6,6 +6,7 @@ import DonationTracker from './components/DonationTracker'
 import Donate from './components/Donate'
 
 import ContributionComparison from './components/Contribution'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <HeroSection />
      <Gallery />
      <DonationTracker />
+     <Footer />
      
       
       

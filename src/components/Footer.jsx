@@ -9,6 +9,8 @@ import {
   FaInstagram,
   FaGithub,
   FaLinkedin,
+  FaTiktok
+
 } from "react-icons/fa";
 
 const Footer = () => {
@@ -16,17 +18,17 @@ const Footer = () => {
     {
       icon: <FaEnvelope />,
       label: "Email",
-      link: "mailto:imeldamugambiconsultancy@gmail.com",
+      link: "mailto:duasa@daystar.ac.ke",
     },
     {
       icon: <FaPhone />,
       label: "Call",
-      link: "tel:+254793287076",
+      link: "tel:+254758154059 ",
     },
     {
       icon: <FaWhatsapp />,
       label: "WhatsApp",
-      link: "https://wa.me/254793287076?text=Hi%20there!%20I%20would%20like%20to%20inquire%20about%20your%20services.",
+      link: "https://wa.me/254758154059?text=Hi%20there!%20I%20would%20like%20to%20inquire%20about%20your%20services.",
     },
   ];
 
@@ -44,11 +46,11 @@ const Footer = () => {
     { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/davis-ngetich-690b6521b" },
   ];
   const socialLinks = [
-    { icon: <FaFacebook />, link: "https://www.facebook.com/profile.php?id=61552745588338&mibextid=ZbWKwL" },
+    { icon: <FaTiktok />, link: "https://www.tiktok.com/@_duasa_?is_from_webapp=1&sender_device=pc" },
     
-    { icon: <FaInstagram />, link: "https://www.instagram.com/imelda_mugambi/profilecard/?igsh=MWNhOTc5NHN6OW5obA==" },
+    { icon: <FaInstagram />, link: "https://www.instagram.com/_duasa_?igsh=amljdWVzdGMwaWRj" },
    
-    { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/imelda-mugambi-digitalconsultant" },
+    { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/daystar-university-actuarial-students-association-duasa-9779b42ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_appt" },
   ];
 
   const faqs = [
