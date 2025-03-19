@@ -13,7 +13,7 @@ const App = () => {
       <HeroSection />
      <Gallery />
      <DonationTracker />
-     <Donate />
+     
       
       
 
