@@ -5,6 +5,7 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { X } from "lucide-react";
 import mpesa from "../assets/mpesa.jpeg";
 
+
 // Rotating Coin Component
 function RotatingCoin() {
   const ref = useRef();
