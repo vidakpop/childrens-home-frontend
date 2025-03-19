@@ -50,7 +50,15 @@ export default function Donate() {
         </Points>
       </Canvas>
 
-      
+      {/* Animated Donate Section */}
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="relative z-10 flex flex-col items-center text-center bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg border border-cyan-500"
+      >
+        
+      </motion.div>
     </div>
   );
 }

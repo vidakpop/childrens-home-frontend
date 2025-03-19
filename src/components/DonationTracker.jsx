@@ -47,7 +47,15 @@ const DonationTracker = () => {
     { name: "Admin Costs", value: 8500 },
   ];
   const COLORS = ["#00ffcc", "#ffcc00", "#ff3366"];
-  
+  const ref = useRef();
+    
+    // Generate random star colors
+    const particles = useMemo(() => {
+      const arr = new Float32Array(3000);
+      for (let i = 0; i < 3000; i++) arr[i] = (Math.random() - 0.5) * 10;
+      return arr;
+    }, []);
+
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center py-10 px-5 relative">
