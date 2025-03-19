@@ -6,13 +6,13 @@ import { X } from "lucide-react";
 import mpesa from "../assets/mpesa.jpeg";
 import coin from "../assets/dollar.png";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Points, PointMaterial } from "@react-three/drei";
+import { OrbitControls, Points, PointMaterial, Stars } from "@react-three/drei";
 import { useRef, useMemo } from "react";
 
 // Rotating Coin Component
 function RotatingCoin() {
   const ref = useRef();
-  
+
   useFrame(() => {
     ref.current.rotation.y += 0.02; // Rotate the coin
   });
@@ -25,6 +25,25 @@ function RotatingCoin() {
   );
 }
 
+// Dynamic Background Particles
+function BackgroundParticles() {
+  const particles = useMemo(() => {
+    const arr = new Float32Array(3000);
+    for (let i = 0; i < 3000; i++) arr[i] = (Math.random() - 0.5) * 10;
+    return arr;
+  }, []);
+
+  return (
+    <Points positions={particles} stride={3}>
+      <PointMaterial
+        size={0.02}
+        color={["cyan", "magenta", "gold", "lime"][Math.floor(Math.random() * 4)]}
+        transparent
+        opacity={0.8}
+      />
+    </Points>
+  );
+}
 
 const DonationTracker = () => {
   const targetAmount = 100000;
@@ -47,48 +66,34 @@ const DonationTracker = () => {
     { name: "Admin Costs", value: 8500 },
   ];
   const COLORS = ["#00ffcc", "#ffcc00", "#ff3366"];
-  const ref = useRef();
-    
-    // Generate random star colors
-    const particles = useMemo(() => {
-      const arr = new Float32Array(3000);
-      for (let i = 0; i < 3000; i++) arr[i] = (Math.random() - 0.5) * 10;
-      return arr;
-    }, []);
-
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center py-10 px-5 relative">
-      <Canvas className="absolute inset-0">
-              <ambientLight intensity={0.5} />
-              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
-              
-              
-      
-              {/* Dynamic Colorful Particles */}
-              <Points ref={ref} positions={particles} stride={3}>
-                <PointMaterial 
-                  size={0.02} 
-                  color={["cyan", "magenta", "gold", "lime"][Math.floor(Math.random() * 4)]} 
-                  transparent opacity={0.8} 
-                />
-              </Points>
-            </Canvas>
+    <div id="donate" className="min-h-screen bg-black text-white flex flex-col items-center py-10 px-5 relative overflow-hidden">
+      {/* 3D Canvas Background */}
+      <Canvas className="absolute inset-0 z-0">
+        <ambientLight intensity={0.5} />
+        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
+        <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade />
+        <BackgroundParticles />
+        <RotatingCoin />
+      </Canvas>
+
+      {/* Content */}
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-5xl font-extrabold text-center mb-6"
+        className="text-5xl font-extrabold text-center mb-6 z-10"
       >
         💰 How You Can Chip In 🎊🎊
       </motion.h1>
 
-      <p className="text-xl text-center max-w-2xl mb-4 text-gray-300">
-        Our target is <span className="text-green-400 font-bold">Ksh. {targetAmount.toLocaleString()}</span>. 
+      <p className="text-xl text-center max-w-2xl mb-4 text-gray-300 z-10">
+        Our target is <span className="text-green-400 font-bold">Ksh. {targetAmount.toLocaleString()}</span>.
         Your support makes a difference! 🙌
       </p>
 
-      <div className="w-full max-w-lg bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
+      <div className="w-full max-w-lg bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 z-10">
         <p className="text-lg text-center mb-3">
           Raised: <span className="text-green-400 font-bold">Ksh. {raisedAmount.toLocaleString()}</span> 🎉
         </p>
@@ -98,7 +103,7 @@ const DonationTracker = () => {
         </p>
       </div>
 
-      <div className="flex flex-col lg:flex-row items-center justify-center mt-10 gap-10">
+      <div className="flex flex-col lg:flex-row items-center justify-center mt-10 gap-10 z-10">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -119,7 +124,7 @@ const DonationTracker = () => {
       </div>
 
       <motion.div
-        className="mt-10 relative cursor-pointer"
+        className="mt-10 relative cursor-pointer z-10"
         animate={{ rotateY: 360 }}
         transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
       >
@@ -131,7 +136,7 @@ const DonationTracker = () => {
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
-        className="mt-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl text-lg shadow-lg transition"
+        className="mt-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl text-lg shadow-lg transition z-10"
       >
         💖 Donate Now
       </motion.button>
@@ -149,14 +154,14 @@ const DonationTracker = () => {
                 <X size={24} />
               </button>
               <h2 className="text-2xl font-bold text-center mb-4">📞 Donate Today!</h2>
-              <p className="text-center text-lg">Contact our Treasurer, Mrs. Debbie Wainaina at <br/>
-                <span className="font-bold text-green-300">0796 935 586</span> or email us at 
+              <p className="text-center text-lg">Contact our Treasurer, Mrs. Debbie Wainaina at <br />
+                <span className="font-bold text-green-300">0796 935 586</span> or email us at
                 <span className="text-blue-300"> duasa@daystar.ac.ke</span>
               </p>
               <div className="flex justify-center mt-5">
-                <motion.img 
+                <motion.img
                   src={mpesa}
-                  alt="Donate QR" 
+                  alt="Donate QR"
                   className="w-24 h-24 cursor-pointer"
                   whileHover={{ scale: 1.1, rotate: 10 }}
                 />

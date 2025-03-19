@@ -48,7 +48,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="merger"
+              to="donate"
               smooth
               duration={500}
               className="hover:text-blue-500 transition-colors"
