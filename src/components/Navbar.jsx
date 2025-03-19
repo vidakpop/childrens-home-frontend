@@ -26,19 +26,10 @@ const Navbar = () => {
               Home
             </Link>
           </li>
+         
           <li>
             <Link
-              to="about"
-              smooth
-              duration={500}
-              className="hover:text-blue-500 transition-colors"
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="profile"
+              to="gallery"
               smooth
               duration={500}
               className="hover:text-blue-500 transition-colors"
@@ -56,16 +47,7 @@ const Navbar = () => {
               Donate
             </Link>
           </li>
-          <li>
-            <Link
-              to="services"
-              smooth
-              duration={500}
-              className="hover:text-blue-500 transition-colors"
-            >
-              Services
-            </Link>
-          </li>
+         
           <li>
             <Link
               to="contact"
@@ -105,20 +87,10 @@ const Navbar = () => {
               Home
             </Link>
           </li>
+          
           <li>
             <Link
-              to="about"
-              smooth
-              duration={500}
-              className="hover:text-blue-500 transition-colors"
-              onClick={toggleMenu}
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="profile"
+              to="gallery"
               smooth
               duration={500}
               className="hover:text-blue-500 transition-colors"
@@ -129,7 +101,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="merger"
+              to="donate"
               smooth
               duration={500}
               className="hover:text-blue-500 transition-colors"
@@ -138,17 +110,7 @@ const Navbar = () => {
               Donate
             </Link>
           </li>
-          <li>
-            <Link
-              to="services"
-              smooth
-              duration={500}
-              className="hover:text-blue-500 transition-colors"
-              onClick={toggleMenu}
-            >
-              Services
-            </Link>
-          </li>
+          
           <li>
             <Link
               to="contact"
