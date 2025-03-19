@@ -4,7 +4,7 @@ import { Progress } from "@/components/ui/progress";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { X } from "lucide-react";
 import mpesa from "../assets/mpesa.jpeg";
-
+import coin from "../assets/dollar.png";
 
 // Rotating Coin Component
 function RotatingCoin() {
