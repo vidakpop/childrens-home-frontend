@@ -15,7 +15,6 @@ const App = () => {
       <HeroSection />
      <Gallery />
      <DonationTracker />
-     <ContributionComparison />
      
       
       
