@@ -64,7 +64,7 @@ const Footer = () => {
     },
     {
       "question": "What contributions has Actuaries made?",
-      "answer": "ICEA LION Actuaries have contributed Ksh. 9,500 towards the total contributions."
+      "answer": "Actuaries have contributed Ksh. 9,500 towards the total contributions."
     },
     {
       "question": "What type of support will be provided to the children?",
