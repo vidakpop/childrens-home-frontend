@@ -65,9 +65,11 @@ const HeroSection = () => {
 
         <Typed
           strings={[
-            "we champion academic excellence",
-            "leadership",
-            "community impact",
+            "empower the children by providing ",
+            "emotional support",
+            "inspiration",
+            "essential resources to enhance their well-being"
+            
           ]}
           typeSpeed={50}
           backSpeed={40}
