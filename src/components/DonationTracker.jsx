@@ -68,7 +68,7 @@ const DonationTracker = () => {
   const COLORS = ["#00ffcc", "#ffcc00", "#ff3366"];
 
   return (
-    <div id="donate" className="min-h-screen bg-black text-white flex flex-col items-center py-10 px-5 relative overflow-hidden">
+    <div className="min-h-screen bg-black text-white flex flex-col items-center py-10 px-5 relative overflow-hidden">
       {/* 3D Canvas Background */}
       <Canvas className="absolute inset-0 z-0">
         <ambientLight intensity={0.5} />
@@ -97,7 +97,15 @@ const DonationTracker = () => {
         <p className="text-lg text-center mb-3">
           Raised: <span className="text-green-400 font-bold">Ksh. {raisedAmount.toLocaleString()}</span> 🎉
         </p>
-        <Progress value={progress} className="h-4 bg-gray-700 rounded-full" />
+        {/* Animated Progress Bar */}
+        <div className="w-full h-4 bg-gray-700 rounded-full overflow-hidden">
+          <motion.div
+            className="h-full bg-green-500 rounded-full"
+            initial={{ width: 0 }}
+            animate={{ width: `${progress}%` }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          />
+        </div>
         <p className="text-center mt-3 text-gray-400">
           Remaining: <span className="text-red-400 font-bold">Ksh. {remainingAmount.toLocaleString()}</span>
         </p>
