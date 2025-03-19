@@ -37,7 +37,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black flex flex-col items-center p-5">
+    <div id='gallery' className="min-h-screen bg-black flex flex-col items-center p-5">
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
