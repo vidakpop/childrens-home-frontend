@@ -63,7 +63,7 @@ const Footer = () => {
       "answer": "Our target is Ksh. 100,000+, and we have currently raised Ksh. 64,000, which is 62% of our goal."
     },
     {
-      "question": "What contributions has ICEA LION Actuaries made?",
+      "question": "What contributions has Actuaries made?",
       "answer": "ICEA LION Actuaries have contributed Ksh. 9,500 towards the total contributions."
     },
     {
