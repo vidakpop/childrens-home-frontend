@@ -5,6 +5,8 @@ import Gallery from './components/Gallery'
 import DonationTracker from './components/DonationTracker'
 import Donate from './components/Donate'
 
+import ContributionComparison from './components/Contribution'
+
 const App = () => {
   return (
     <div className='bg-gray-50 text-gray-900'> 
@@ -13,6 +15,7 @@ const App = () => {
       <HeroSection />
      <Gallery />
      <DonationTracker />
+     <ContributionComparison />
      
       
       

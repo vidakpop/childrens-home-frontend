@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Progress } from "@/components/ui/progress";
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from "recharts";
 import { X } from "lucide-react";
 import mpesa from "../assets/mpesa.jpeg";
 import coin from "../assets/dollar.png";
@@ -67,6 +67,15 @@ const DonationTracker = () => {
   ];
   const COLORS = ["#00ffcc", "#ffcc00", "#ff3366"];
 
+  // Contribution Comparison Data
+  const iceaLionAmount = 9500;
+  const studentsAmount = raisedAmount - iceaLionAmount;
+
+  const contributionData = [
+    { name: "Students", amount: studentsAmount },
+    { name: "ICEA Lion", amount: iceaLionAmount },
+  ];
+
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center py-10 px-5 relative overflow-hidden">
       {/* 3D Canvas Background */}
@@ -109,6 +118,24 @@ const DonationTracker = () => {
         <p className="text-center mt-3 text-gray-400">
           Remaining: <span className="text-red-400 font-bold">Ksh. {remainingAmount.toLocaleString()}</span>
         </p>
+      </div>
+
+      {/* Contribution Comparison Section */}
+      <div className="w-full max-w-2xl mt-10 bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 z-10">
+        <h2 className="text-2xl font-bold text-center mb-6">Contribution Comparison</h2>
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart data={contributionData}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+            <XAxis dataKey="name" stroke="#fff" />
+            <YAxis stroke="#fff" />
+            <Tooltip
+              contentStyle={{ backgroundColor: "#333", border: "1px solid #555", borderRadius: "8px" }}
+              labelStyle={{ color: "#fff" }}
+            />
+            <Legend />
+            <Bar dataKey="amount" fill="#00ffcc" name="Amount (Ksh)" />
+          </BarChart>
+        </ResponsiveContainer>
       </div>
 
       <div className="flex flex-col lg:flex-row items-center justify-center mt-10 gap-10 z-10">
