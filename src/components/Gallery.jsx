@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { SiTruenas } from "react-icons/si";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const Gallery = () => {
   const [images, setImages] = useState([]);
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
-  const [sliderRef, setSliderRef] = useState(null);
+  const modalRef = useRef(null);
 
   useEffect(() => {
     axios
       .get("https://csr.technologent.co.ke/api/gallery/")
-      .then((response) => setImages(response.data))
+      .then((response) => {
+        console.log("Fetched images:", response.data);
+        setImages(response.data);
+      })
       .catch((error) => console.error("Error fetching images:", error));
   }, []);
 
@@ -22,22 +22,34 @@ const Gallery = () => {
     setSelectedImageIndex(index);
   };
 
-  const closePopup = () => {
-    setSelectedImageIndex(null);
+  const closePopup = (event) => {
+    if (event.target.id === "popup-overlay") {
+      setSelectedImageIndex(null);
+    }
   };
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    arrows: true,
+  const prevSlide = () => {
+    setSelectedImageIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1));
   };
+
+  const nextSlide = () => {
+    setSelectedImageIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (selectedImageIndex !== null) {
+        if (event.key === "ArrowLeft") prevSlide();
+        if (event.key === "ArrowRight") nextSlide();
+        if (event.key === "Escape") setSelectedImageIndex(null);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedImageIndex]);
 
   return (
-    <div id='gallery' className="min-h-screen bg-black flex flex-col items-center p-5">
+    <div id="gallery" className="min-h-screen bg-black flex flex-col items-center p-5">
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -73,33 +85,54 @@ const Gallery = () => {
         ))}
       </motion.div>
 
-      {selectedImageIndex !== null && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+      {/* Pop-up with Custom Carousel */}
+      {selectedImageIndex !== null && images.length > 0 && (
+        <div
+          id="popup-overlay"
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+          onClick={closePopup}
+        >
           <motion.div
-            className="max-w-2xl w-full h-[80vh] bg-gray-900 rounded-xl relative flex flex-col justify-center items-center p-5"
+            ref={modalRef}
+            className="relative w-full max-w-3xl bg-gray-900 p-6 rounded-xl shadow-xl flex items-center"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}
+            onClick={(e) => e.stopPropagation()} // Prevent background click
           >
+            {/* Close Button */}
             <button
-              onClick={closePopup}
-              className="absolute top-4 right-4 bg-red-500 text-white px-3 py-2 rounded-lg hover:bg-red-700 transition"
+              onClick={() => setSelectedImageIndex(null)}
+              className="absolute top-4 right-4 bg-gray-800 text-white p-2 rounded-full hover:bg-red-600 transition"
             >
-              Close
+              <X size={24} />
             </button>
 
-            <Slider ref={setSliderRef} {...settings} initialSlide={selectedImageIndex}>
-              {images.map((img) => (
-                <div key={img.id} className="flex justify-center items-center">
-                  <motion.img
-                    src={img.image}
-                    alt={img.title}
-                    className="w-full h-[60vh] object-contain rounded-xl shadow-lg"
-                    whileHover={{ scale: 1.05 }}
-                  />
-                </div>
-              ))}
-            </Slider>
+            {/* Left Arrow */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600 transition"
+            >
+              <ChevronLeft size={24} />
+            </button>
+
+            {/* Image Display */}
+            <div className="flex justify-center items-center">
+              <motion.img
+                src={images[selectedImageIndex].image}
+                alt={images[selectedImageIndex].title}
+                className="w-full h-[70vh] object-contain rounded-lg shadow-md"
+                whileHover={{ scale: 1.02 }}
+              />
+            </div>
+
+            {/* Right Arrow */}
+            <button
+              onClick={nextSlide}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600 transition"
+            >
+              <ChevronRight size={24} />
+            </button>
           </motion.div>
         </div>
       )}
