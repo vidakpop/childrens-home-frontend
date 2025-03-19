@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
 import Gallery from './components/Gallery'
 import DonationTracker from './components/DonationTracker'
+import Donate from './components/Donate'
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <HeroSection />
      <Gallery />
      <DonationTracker />
+     <Donate />
       
       
 
