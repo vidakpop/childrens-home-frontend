@@ -5,6 +5,9 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { X } from "lucide-react";
 import mpesa from "../assets/mpesa.jpeg";
 import coin from "../assets/dollar.png";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls, Points, PointMaterial } from "@react-three/drei";
+import { useRef, useMemo } from "react";
 
 // Rotating Coin Component
 function RotatingCoin() {
@@ -44,9 +47,25 @@ const DonationTracker = () => {
     { name: "Admin Costs", value: 8500 },
   ];
   const COLORS = ["#00ffcc", "#ffcc00", "#ff3366"];
+  
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center py-10 px-5 relative">
+      <Canvas className="absolute inset-0">
+              <ambientLight intensity={0.5} />
+              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
+              
+              
+      
+              {/* Dynamic Colorful Particles */}
+              <Points ref={ref} positions={particles} stride={3}>
+                <PointMaterial 
+                  size={0.02} 
+                  color={["cyan", "magenta", "gold", "lime"][Math.floor(Math.random() * 4)]} 
+                  transparent opacity={0.8} 
+                />
+              </Points>
+            </Canvas>
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
