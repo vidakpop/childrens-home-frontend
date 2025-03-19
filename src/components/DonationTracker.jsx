@@ -73,7 +73,7 @@ const DonationTracker = () => {
 
   const contributionData = [
     { name: "Students", amount: studentsAmount },
-    { name: "ICEA Lion", amount: iceaLionAmount },
+    { name: "ICEA LION ACTUARIES ", amount: iceaLionAmount },
   ];
 
   return (
