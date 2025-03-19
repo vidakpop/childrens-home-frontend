@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Progress } from "@/components/ui/progress";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { X } from "lucide-react";
-import {mpesa} from "../assets/mpesa.jpeg";
+import mpesa from "../assets/mpesa.jpeg";
 
 const DonationTracker = () => {
   const targetAmount = 100000;
